@@ -1,0 +1,1 @@
+A large assumption is that the user enters a valid date and time the second time around after having being rejected. There is no loop in the system, thus it is assumed that the user will enter the correct information the second time if they are unsuccessful the first time. 
