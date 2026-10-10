@@ -1,0 +1,28 @@
+@startuml SEQUENCE
+title School Facility Rental - Sequence
+actor Renter
+participant Website
+participant "School Staff" as Staff
+participant "Payment Service" as Pay
+participant "Email Service" as Email
+Renter -> Website: submit request
+... Checking availability ...
+Website -> Staff: send request for review
+... Reviewing request ...
+alt approved
+Staff --> Website: approved
+Pay --> Renter
+... add payment and confirmation ...
+else payment success 
+Website --> Renter: Booking saved
+... Sending confirmation email ...
+else payment failure 
+Website --> Renter: Failure recorded
+... Sending failure email ...
+else rejected
+Staff --> Website: rejected
+Website --> Renter: Send email of rejection
+
+
+end
+@enduml
